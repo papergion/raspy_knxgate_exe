@@ -1,11 +1,13 @@
-echo "start scsgate_x in background"
-if ps -A|grep scsgate_x
+echo "start knxgate_x in background"
+if ps -A|grep knxgate_x
 then
 echo "--> process already running."
 else
-if nohup ./scsgate_x -B & >NUL
+rm nohup.out
+if nohup sudo ./knxgate_x -H & >NUL
 then
-echo "O.K."
+echo "o.k."
+cat nohup.out
 else
 echo "ERROR"
 fi
